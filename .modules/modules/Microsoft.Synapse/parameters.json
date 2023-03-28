@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "pardeploymentType":{
+      "value": "dev"
+    },
+    "parallowAllConnections" : {
+      "value": "false"
+    },
+    "parsparkDeployment" : {
+      "value": "true"
+    },
+    "parsqlAdministratorLoginPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/a6842986-a155-4d65-837a-6877e0d1b432/resourceGroups/ML_RG/providers/Microsoft.KeyVault/vaults/kvtest145"
+        },
+        "secretName": "mypassword"
+      }
+    },
+    "parkvResourceGroup" :{
+      "value": "ML_RG"
+    },
+    "parkvName":{
+      "value": "kvtest145"
+    },
+    "parsubscriptionId":{
+      "value": "a6842986-a155-4d65-837a-6877e0d1b432"
+    },
+    "parsparkNodeSize" : {
+      "value": "Small"
+    },
+    "parsqlAdministratorLogin" :{
+      "value": "sqlspsadmin"
+    },
+    "parsku":{
+      "value": "DW100c"
+    }
+  }
+}
