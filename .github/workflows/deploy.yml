@@ -21,10 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      # Install Bicep CLI
-      - name: Install Bicep CLI
-        uses: azure/setup-bicep@v1
-      
       # Login to Azure using service principal credentials
       - name: Login to Azure
         uses: azure/login@v1
