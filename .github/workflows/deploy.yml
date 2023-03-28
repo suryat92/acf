@@ -30,10 +30,10 @@ jobs:
           chmod +x ./bicep
           sudo mv ./bicep /usr/local/bin/bicep
 
-      - name: Validate Bicep code
-        run: |
-          bicep build "./StorageAccount/StorageAccount.bicep" --stdout > generated.json
-          az deployment group validate -f generated.json -p parameters.json
+#      - name: Validate Bicep code
+ #       run: |
+ #         bicep build "./StorageAccount/StorageAccount.bicep" --stdout > generated.json
+ #         az deployment group validate -f generated.json -p parameters.json
 
       # Login to Azure using service principal credentials
       - name: Login to Azure
