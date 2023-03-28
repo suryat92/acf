@@ -29,5 +29,4 @@ jobs:
         run: |
           az deployment group create \
             --resource-group ${{ secrets.AZURE_RG }} \
-            --template-file ./template.bicep \
-            --parameters param1=value1 param2=value2
+            --template-file "./StorageAccount/StorageAccount.bicep"
