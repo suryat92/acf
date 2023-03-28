@@ -1,0 +1,14 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "parTargetManagementGroupId": {
+        "value": "sps-platform-connectivity"
+      },
+      "parSubscriptionIds": {
+        "value": [
+          "08bc7b24-4234-4f48-af08-1fc0cb8644bb"
+        ]
+      }
+    }
+}

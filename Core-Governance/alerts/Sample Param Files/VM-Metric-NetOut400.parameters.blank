@@ -1,0 +1,88 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        
+        "parSubscription": {
+            "metadata": {
+                "description": "[REQUIRED] Subscription name or ID string"
+            },
+            "value": "subscription name goes here"
+        },
+        "parLocation": {
+            "metadata": {
+                "description": "[REQUIRED] Location for the deployment (e.g. uksouth or northeurope)"
+            },
+            "value": "Location goes here"
+        },
+        "parResourceGroupName": {
+            "metadata": {
+                "description": "[REQUIRED] Resource Group Name (will be created if required)"
+            },
+            "value": "resource group name goes here"
+        }, 
+        "tags": {
+            "value": {
+                "ApplicationName": "Alerts",
+                "DataClassification": "Official",
+                "AppID": "0000",
+                "CostCenter": "0000",
+                "Environment": "Production"
+            }
+        },
+        "parAlertMetricName": {
+            "value": "VM-Metric-NetOut-400"
+        },
+        "parAlertMetricDescription": {
+            "value": "VM Metric Network Out Greater than 400mb"
+        },
+        "parAlertMetricSeverity": {
+            "value": 3
+        },
+        "parAlertMetricEnabled": {
+            "value": true
+        },
+        "parAlertMetricWindowSize": {
+            "value": "PT5M"
+        },
+        "parAlertMetricValuationFrequency": {
+            "value": "PT5M"
+        },
+        "parAlertMetricTargetResourceType": {
+            "value": "microsoft.compute/virtualmachines"
+        },
+        "parAlertMetricTargetResourceRegion": {
+            "value": "UKSouth"
+        },
+        "parAlertMetricLocation": {
+            "value": "global"
+        },
+        "parAlertMetricCriteriaType": {
+            "value": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria"
+        },
+        "parAlertMetricAutomitigate": {
+            "value": true
+        },
+        "parAlertMetricCriterias": {
+            "value": [
+                    {
+                    "criterionType": "StaticThresholdCriterion",
+                    "metricName": "Network Out Total",
+                    "metricNamespace": "microsoft.compute/virtualmachines",
+                    "name": "NetworkOutHigh",
+                    "operator": "GreaterThanOrEqual",
+                    "threshold": 400000000,
+                    "timeAggregation": "Total"
+                }
+            ]
+        },
+        "parActionGroupName": {
+            "value":"subscription action group name goes here"
+        },
+        "parscopes": {
+            "value": [
+                "resource ID goes here"
+            ]
+        }
+    }
+}

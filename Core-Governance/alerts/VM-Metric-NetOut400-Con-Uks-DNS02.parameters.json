@@ -1,0 +1,87 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "parSubscription": {
+            "metadata": {
+                "description": "[REQUIRED] Subscription name or ID string"
+            },
+            "value": "sub-plt-con-prod-01"
+        },
+        "parLocation": {
+            "metadata": {
+                "description": "[REQUIRED] Location for the deployment (e.g. uksouth or northeurope)"
+            },
+            "value": "uksouth"
+        },
+        "parResourceGroupName": {
+            "metadata": {
+                "description": "[REQUIRED] Resource Group Name (will be created if required)"
+            },
+            "value": "rg-alerts-con-uks"
+        },
+        "tags": {
+            "value": {
+                "ApplicationName": "Alerts",
+                "DataClassification": "Official",
+                "AppID": "0000",
+                "CostCenter": "0000",
+                "Environment": "Production"
+            }
+        },
+        "parAlertMetricName": {
+            "value": "VM-Metric-NetOut-400-DNS02"
+        },
+        "parAlertMetricDescription": {
+            "value": "VM Metric Network Out Greater than 400mb"
+        },
+        "parAlertMetricSeverity": {
+            "value": 3
+        },
+        "parAlertMetricEnabled": {
+            "value": true
+        },
+        "parAlertMetricWindowSize": {
+            "value": "PT5M"
+        },
+        "parAlertMetricValuationFrequency": {
+            "value": "PT5M"
+        },
+        "parAlertMetricTargetResourceType": {
+            "value": "microsoft.compute/virtualmachines"
+        },
+        "parAlertMetricTargetResourceRegion": {
+            "value": "UKSouth"
+        },
+        "parAlertMetricLocation": {
+            "value": "global"
+        },
+        "parAlertMetricCriteriaType": {
+            "value": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria"
+        },
+        "parAlertMetricAutomitigate": {
+            "value": true
+        },
+        "parAlertMetricCriterias": {
+            "value": [
+                {
+                    "criterionType": "StaticThresholdCriterion",
+                    "metricName": "Network Out Total",
+                    "metricNamespace": "microsoft.compute/virtualmachines",
+                    "name": "NetworkOutHigh",
+                    "operator": "GreaterThanOrEqual",
+                    "threshold": 400000000,
+                    "timeAggregation": "Total"
+                }
+            ]
+        },
+        "parActionGroupName": {
+            "value": "Alerts-Agrp-con-prod-uks"
+        },
+        "parscopes": {
+            "value": [
+                "/subscriptions/08bc7b24-4234-4f48-af08-1fc0cb8644bb/resourceGroups/rg-dnsfwd-con-uks/providers/Microsoft.Compute/virtualMachines/azuks-win-dns02"
+            ]
+        }
+    }
+}

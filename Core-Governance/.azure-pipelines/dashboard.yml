@@ -1,0 +1,101 @@
+trigger:
+  branches:
+    include:
+      - "*"
+  paths:
+    include:
+      - dashboard
+    exclude:
+      - securitycenter
+      - alertmetrics
+      - custom-role-definitions
+      - managementGroups
+      - policy
+      - role-assignments
+      - subscriptions
+      - .azure-pipelines
+      - .vscode
+
+name: Deploy Dashboard
+
+variables:
+  - group: Shared
+  - name: vmImageName
+    value: ubuntu-latest
+  - name: location
+    value: uksouth
+  - name: ResourceGroupName
+    value: SellafieldManagementRG
+  - name: templateFile
+    value: dashboard.bicep
+  - name: parametersFile
+    value: ./parameters/dashboard.parameters.json
+  - name: subscriptionId
+    value: $[variables.ManagementSubscriptionId]
+  - name: workingDirectory
+    value: $(System.DefaultWorkingDirectory)/dashboard
+  - name: isMain
+    value: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+
+pool:
+  vmImage: $(vmImageName)
+
+stages:
+  - stage: ValidateAndWhatIf
+
+    jobs:
+     
+
+      - job: Validate
+        
+
+        steps:
+          - task: AzureCLI@2
+            displayName: Lint
+            inputs:
+              azureSubscription: $(azureServiceConnection)
+              scriptType: bash
+              scriptLocation: inlineScript
+              workingDirectory: $(WorkingDirectory)
+              inlineScript: |
+                az --version
+                az bicep install
+                bicep build $(templateFile)
+
+          - task: AzureCLI@2
+            displayName: Validate
+            inputs:
+              azureSubscription: $(azureServiceConnection)
+              scriptType: bash
+              scriptLocation: inlineScript
+              workingDirectory: $(WorkingDirectory)
+              inlineScript: |
+                az account set --subscription $(subscriptionId)
+                az deployment group validate --resource-group $(resourceGroupName) -f $(templateFile) -p $(parametersFile) --verbose
+
+          - task: AzureCLI@2
+            displayName: What-If
+            inputs:
+              azureSubscription: $(azureServiceConnection)
+              scriptType: bash
+              scriptLocation: inlineScript
+              workingDirectory: $(WorkingDirectory)
+              inlineScript: |
+                az account set --subscription $(subscriptionId)
+                az deployment group create --resource-group $(resourceGroupName) -f $(templateFile) -p $(parametersFile) --verbose --what-if
+
+      - job: Deploy
+        condition: and(succeeded(), eq(variables.isMain, 'true'))
+
+        steps:
+
+          - task: AzureCLI@2
+            displayName: Deploy
+            inputs:
+              azureSubscription: $(azureServiceConnection)
+              scriptType: bash
+              scriptLocation: inlineScript
+              workingDirectory: $(WorkingDirectory)
+              inlineScript: |
+                az account set --subscription $(subscriptionId)
+                az deployment group create --resource-group $(resourceGroupName) -f $(templateFile) -p $(parametersFile) --verbose 

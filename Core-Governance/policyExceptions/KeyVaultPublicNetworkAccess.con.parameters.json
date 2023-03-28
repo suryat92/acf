@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "parSubscription": {
+            "metadata": {
+                "description": "[REQUIRED] Subscription ID string"
+            },
+            "value": "08bc7b24-4234-4f48-af08-1fc0cb8644bb"
+        },
+        "parLocation": {
+            "metadata": {
+                "description": "[REQUIRED] Location for the deployment (e.g. uksouth or northeurope)"
+            },
+            "value": "uksouth"
+        },
+        "parResourceGroupName": {
+            "metadata": {
+                "description": "[REQUIRED] Resource Group name to exempt form the policy"
+            },
+            "value": "rg-keyvault-con-uks"
+        },
+        "tags": {
+            "value": {
+                "ApplicationName": "Shared",
+                "DataClassification": "Official",
+                "AppID": "0000",
+                "CostCenter": "0000",
+                "Environment": "Production"
+            }
+        },
+        "parTopLevelManagementGroupID": {
+            "value": "SPS"
+        },
+        "parPolicyExemptionDisplayName": {
+            "value": "rg-keyvault-con-uks - Allow public endpoint for KeyVault"
+        },
+        "policyAssignmentName": {
+            "value": "Deny-Public-Endpoints"
+        },
+        "parExemptionDescription": {
+            "value": "Allow public endpoint for KeyVault in core connectivity sub"
+        },
+        "parExemptionCategory": {
+            "value": "Waiver"
+        },
+        "parExpiresOn": {
+            "value": ""
+        }
+    }
+}

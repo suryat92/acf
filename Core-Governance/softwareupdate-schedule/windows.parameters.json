@@ -1,0 +1,58 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "parSubscription":{
+            "value": "c212bc8d-1360-4b09-a552-bb8da6b9876d"
+        },
+        "parResourceGroupName":{
+            "value": "RG-Azure-Sentinel"
+        },
+        "deploymentScheduleName": {
+            "value": "Windows_ZeroDay"
+        },
+        "automationAccountName": {
+            "value": "aut-shared-uks-01"
+        },
+        "operatingSystem": {
+            "value": "Windows"
+        },
+        "scopeByTags": {
+            "value": {
+                "Update": [
+                    "Automatic-Wave1"
+                ]
+            }
+        },
+        "maintenanceWindow": {
+            "value": "PT4H"
+        },
+        "updateClassifications": {
+            "value": [
+                "Critical",
+                "Security"
+            ]
+        },
+        "includeUpdates": {
+            "value": []
+        },
+        "excludeUpdates": {
+            "value": []
+        },
+        "rebootSetting": {
+            "value": "IfRequired"
+        },
+        "interval": {
+            "value": 1
+        },
+        "frequency": {
+            "value": "OneTime"
+        },
+        "monthlyOccurrences": {
+            "value": []
+        },
+        "startTime": {
+            "value": "2022-03-17T06:00"
+        }
+    }
+}

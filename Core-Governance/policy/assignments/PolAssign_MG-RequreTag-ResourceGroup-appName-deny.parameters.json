@@ -1,0 +1,49 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "parManagementGroupIDs":{
+            "value": ["SPS"]
+        },
+        "parPolicyAssignmentName": {
+            "value": "RequireTag-RG-AppName"
+        },
+        "parPolicyAssignmentDisplayName": {
+            "value": "Require a tag on resource groups - ApplicationName"
+        },
+        "parPolicyAssignmentDescription": {
+            "value": "Require a tag on resource groups - ApplicationName"
+        },
+        "parPolicyAssignmentDefinitionID": {
+            "value": "/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025"
+        },
+        "parPolicyAssignmentParameters": {
+            "value": {
+                "tagName": {
+                    "value": "ApplicationName"
+                }
+            }
+        },
+        "parPolicyAssignmentNonComplianceMessages": {
+            "value": []
+        },
+        "parPolicyAssignmentNotScopes": {
+            "value": []
+        },
+        "parPolicyAssignmentEnforcementMode": {
+            "value": "Default"
+        },
+        "parPolicyAssignmentIdentityType": {
+            "value": "None"
+        },
+        "parPolicyAssignmentIdentityRoleAssignmentsAdditionalMGs": {
+            "value": []
+        },
+        "parPolicyAssignmentIdentityRoleAssignmentsSubs": {
+            "value": []
+        },
+        "parPolicyAssignmentIdentityRoleDefinitionIDs": {
+            "value": []
+        }
+    }
+  }

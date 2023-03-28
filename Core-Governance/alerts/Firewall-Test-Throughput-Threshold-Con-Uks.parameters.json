@@ -1,0 +1,88 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        
+        "parSubscription": {
+            "metadata": {
+                "description": "[REQUIRED] Subscription name or ID string"
+            },
+            "value": "sub-plt-con-prod-01"
+        },
+        "parLocation": {
+            "metadata": {
+                "description": "[REQUIRED] Location for the deployment (e.g. uksouth or northeurope)"
+            },
+            "value": "uksouth"
+        },
+        "parResourceGroupName": {
+            "metadata": {
+                "description": "[REQUIRED] Resource Group Name (will be created if required)"
+            },
+            "value": "rg-alerts-con-uks"
+        }, 
+        "tags": {
+            "value": {
+                "ApplicationName": "Alerts",
+                "DataClassification": "Official",
+                "AppID": "0000",
+                "CostCenter": "0000",
+                "Environment": "Production"
+            }
+        },
+        "parAlertMetricName": {
+            "value": "Test-Firewall-Throughput-Threshold-1mbps"
+        },
+        "parAlertMetricDescription": {
+            "value": "Test Firewall Throughput Threshold 1mbps"
+        },
+        "parAlertMetricSeverity": {
+            "value": 3
+        },
+        "parAlertMetricEnabled": {
+            "value": true
+        },
+        "parAlertMetricWindowSize": {
+            "value": "PT5M"
+        },
+        "parAlertMetricValuationFrequency": {
+            "value": "PT5M"
+        },
+        "parAlertMetricTargetResourceType": {
+            "value": "Microsoft.Network/azureFirewalls"
+        },
+        "parAlertMetricTargetResourceRegion": {
+            "value": "UKSouth"
+        },
+        "parAlertMetricLocation": {
+            "value": "global"
+        },
+        "parAlertMetricCriteriaType": {
+            "value": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria"
+        },
+        "parAlertMetricAutomitigate": {
+            "value": true
+        },
+        "parAlertMetricCriterias": {
+            "value": [
+                    {
+                    "criterionType": "StaticThresholdCriterion",
+                    "metricName": "Throughput",
+                    "metricNamespace": "Microsoft.Network/azureFirewalls",
+                    "name": "Firewall Throughput Threshold",
+                    "operator": "GreaterThan",
+                    "threshold": 10000000,
+                    "timeAggregation": "Average"
+                }
+            ]
+        },
+        "parActionGroupName": {
+            "value":"Alerts-Agrp-con-prod-uks"
+        },
+        "parscopes": {
+            "value": [
+                "/subscriptions/08bc7b24-4234-4f48-af08-1fc0cb8644bb/resourceGroups/rg-shared-services-vnet-con-uks/providers/Microsoft.Network/azureFirewalls/azfw-core-con-uks-01"
+            ]
+        }
+    }
+}

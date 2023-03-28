@@ -1,0 +1,55 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "parManagementGroupIDs":{
+            "value": ["SPS"]
+        },
+        "parPolicyAssignmentName": {
+            "value": "Deny-Resource-Locations"
+        },
+        "parPolicyAssignmentDisplayName": {
+            "value": "Limit allowed locations for Resources"
+        },
+        "parPolicyAssignmentDescription": {
+            "value": "This policy Specifies the allowed locations (regions) where Resources can be deployed"
+        },
+        "parPolicyAssignmentDefinitionID": {
+            "value": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c"
+        },
+        "parPolicyAssignmentParameters": {
+            "value": {
+                  "listOfAllowedLocations": {
+                    "value": [
+                      "uksouth",
+                      "ukwest"
+                    ]
+                  }
+            }
+        },
+        "parPolicyAssignmentParameterOverrides": {
+            "value": {}
+        },
+        "parPolicyAssignmentNonComplianceMessages": {
+            "value": []
+        },
+        "parPolicyAssignmentNotScopes": {
+            "value": []
+        },
+        "parPolicyAssignmentEnforcementMode": {
+            "value": "Default"
+        },
+        "parPolicyAssignmentIdentityType": {
+            "value": "None"
+        },
+        "parPolicyAssignmentIdentityRoleAssignmentsAdditionalMGs": {
+            "value": []
+        },
+        "parPolicyAssignmentIdentityRoleAssignmentsSubs": {
+            "value": []
+        },
+        "parPolicyAssignmentIdentityRoleDefinitionIDs": {
+            "value": []
+        }
+    }
+}

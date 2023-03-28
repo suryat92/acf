@@ -1,0 +1,88 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        
+        "parSubscription": {
+            "metadata": {
+                "description": "[REQUIRED] Subscription name or ID string"
+            },
+            "value": "subscription name goes here"
+        },
+        "parLocation": {
+            "metadata": {
+                "description": "[REQUIRED] Location for the deployment (e.g. uksouth or northeurope)"
+            },
+            "value": "location name goes here"
+        },
+        "parResourceGroupName": {
+            "metadata": {
+                "description": "[REQUIRED] Resource Group Name (will be created if required)"
+            },
+            "value": "resource group goes here"
+        }, 
+        "tags": {
+            "value": {
+                "ApplicationName": "Alerts",
+                "DataClassification": "Official",
+                "AppID": "0000",
+                "CostCenter": "0000",
+                "Environment": "Production"
+            }
+        },
+        "parAlertMetricName": {
+            "value": "Firewall-Network-Rule-Threshold"
+        },
+        "parAlertMetricDescription": {
+            "value": "Firewall Network Rule Threshold"
+        },
+        "parAlertMetricSeverity": {
+            "value": 3
+        },
+        "parAlertMetricEnabled": {
+            "value": true
+        },
+        "parAlertMetricWindowSize": {
+            "value": "PT5M"
+        },
+        "parAlertMetricValuationFrequency": {
+            "value": "PT5M"
+        },
+        "parAlertMetricTargetResourceType": {
+            "value": "Microsoft.Network/azureFirewalls"
+        },
+        "parAlertMetricTargetResourceRegion": {
+            "value": "UKSouth"
+        },
+        "parAlertMetricLocation": {
+            "value": "global"
+        },
+        "parAlertMetricCriteriaType": {
+            "value": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria"
+        },
+        "parAlertMetricAutomitigate": {
+            "value": true
+        },
+        "parAlertMetricCriterias": {
+            "value": [
+                    {
+                    "criterionType": "StaticThresholdCriterion",
+                    "metricName": "NetworkRuleHit",
+                    "metricNamespace": "Microsoft.Network/azureFirewalls",
+                    "name": "Firewall Network Rule Threshold",
+                    "operator": "GreaterThan",
+                    "threshold": 200,
+                    "timeAggregation": "Total"
+                }
+            ]
+        },
+        "parActionGroupName": {
+            "value":"action group name goes here"
+        },
+        "parscopes": {
+            "value": [
+                "resource ID goes here"
+            ]
+        }
+    }
+}

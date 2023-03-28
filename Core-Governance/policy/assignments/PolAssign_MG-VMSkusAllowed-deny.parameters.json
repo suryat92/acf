@@ -1,0 +1,193 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "parManagementGroupIDs":{
+            "value": [
+                      "SPS"
+                         ]
+        },
+        "parPolicyAssignmentName": {
+            "value": "Allowed-VM-SKUs"
+        },
+        "parPolicyAssignmentDisplayName": {
+            "value": "Allowed virtual machine size SKUs"
+        },
+        "parPolicyAssignmentDescription": {
+            "value": "This policy enables you to specify a set of virtual machine size SKUs that your organization can deploy."
+        },
+        "parPolicyAssignmentDefinitionID": {
+            "value": "/providers/Microsoft.Authorization/policyDefinitions/cccc23c7-8427-4f53-ad12-b6a63eb452b3"
+        },
+        "parPolicyAssignmentParameters": {
+            "value": {
+                  "listOfAllowedSKUs": {
+                    "value": [
+                        "Standard_A1_v2",
+                        "Standard_A2_v2",
+                        "Standard_A2m_v2",
+                        "Standard_A4_v2",
+                        "Standard_A4m_v2",
+                        "Standard_A8_v2",
+                        "Standard_A8m_v2",
+                        "Standard_B1ls",
+                        "Standard_B1ms",
+                        "Standard_B1s",
+                        "Standard_B2ms",
+                        "Standard_B2s",
+                        "Standard_B4ms",
+                        "Standard_B8ms",
+                        "Standard_D1_v2",
+                        "Standard_D11_v2",
+                        "Standard_D12_v2",
+                        "Standard_D13_v2",
+                        "Standard_D2_v2",
+                        "Standard_D2_v3",
+                        "Standard_D2_v4",
+                        "Standard_D2_v5",
+                        "Standard_D2a_v4",
+                        "Standard_D2as_v4",
+                        "Standard_D2d_v4",
+                        "Standard_D2d_v5",
+                        "Standard_D2ds_v4",
+                        "Standard_D2ds_v5",
+                        "Standard_D2s_v3",
+                        "Standard_D2s_v4",
+                        "Standard_D2s_v5",
+                        "Standard_D3_v2",
+                        "Standard_D4_v2",
+                        "Standard_D4_v3",
+                        "Standard_D4_v4",
+                        "Standard_D4_v5",
+                        "Standard_D4a_v4",
+                        "Standard_D4as_v4",
+                        "Standard_D4d_v4",
+                        "Standard_D4d_v5",
+                        "Standard_D4ds_v4",
+                        "Standard_D4ds_v5",
+                        "Standard_D4s_v3",
+                        "Standard_D4s_v4",
+                        "Standard_D4s_v5",
+                        "Standard_D8_v3",
+                        "Standard_D8_v4",
+                        "Standard_D8_v5",
+                        "Standard_D8a_v4",
+                        "Standard_D8as_v4",
+                        "Standard_D8d_v4",
+                        "Standard_D8d_v5",
+                        "Standard_D8ds_v4",
+                        "Standard_D8ds_v5",
+                        "Standard_D8s_v3",
+                        "Standard_D8s_v4",
+                        "Standard_D8s_v5",
+                        "Standard_DC1s_v2",
+                        "Standard_DC2s_v2",
+                        "Standard_DC4s_v2",
+                        "Standard_DC8_v2",
+                        "Standard_DS1_v2",
+                        "Standard_DS11_v2",
+                        "Standard_DS11-1_v2",
+                        "Standard_DS12_v2",
+                        "Standard_DS12-1_v2",
+                        "Standard_DS12-2_v2",
+                        "Standard_DS13_v2",
+                        "Standard_DS13-2_v2",
+                        "Standard_DS13-4_v2",
+                        "Standard_DS2_v2",
+                        "Standard_DS3_v2",
+                        "Standard_DS4_v2",
+                        "Standard_E2_v3",
+                        "Standard_E2_v4",
+                        "Standard_E2_v5",
+                        "Standard_E2a_v4",
+                        "Standard_E2as_v4",
+                        "Standard_E2d_v4",
+                        "Standard_E2d_v5",
+                        "Standard_E2ds_v4",
+                        "Standard_E2ds_v5",
+                        "Standard_E2s_v3",
+                        "Standard_E2s_v4",
+                        "Standard_E2s_v5",
+                        "Standard_E4_v3",
+                        "Standard_E4_v4",
+                        "Standard_E4_v5",
+                        "Standard_E4-2as_v4",
+                        "Standard_E4-2ds_v4",
+                        "Standard_E4-2ds_v5",
+                        "Standard_E4-2s_v3",
+                        "Standard_E4-2s_v4",
+                        "Standard_E4-2s_v5",
+                        "Standard_E4a_v4",
+                        "Standard_E4as_v4",
+                        "Standard_E4d_v4",
+                        "Standard_E4d_v5",
+                        "Standard_E4ds_v4",
+                        "Standard_E4ds_v5",
+                        "Standard_E4s_v3",
+                        "Standard_E4s_v4",
+                        "Standard_E4s_v5",
+                        "Standard_E8_v3",
+                        "Standard_E8_v4",
+                        "Standard_E8_v5",
+                        "Standard_E8-2as_v4",
+                        "Standard_E8-2ds_v4",
+                        "Standard_E8-2ds_v5",
+                        "Standard_E8-2s_v3",
+                        "Standard_E8-2s_v4",
+                        "Standard_E8-2s_v5",
+                        "Standard_E8-4as_v4",
+                        "Standard_E8-4ds_v4",
+                        "Standard_E8-4ds_v5",
+                        "Standard_E8-4s_v3",
+                        "Standard_E8-4s_v4",
+                        "Standard_E8-4s_v5",
+                        "Standard_E8a_v4",
+                        "Standard_E8as_v4",
+                        "Standard_E8d_v4",
+                        "Standard_E8d_v5",
+                        "Standard_E8ds_v4",
+                        "Standard_E8ds_v5",
+                        "Standard_E8s_v3",
+                        "Standard_E8s_v4",
+                        "Standard_E8s_v5",
+                        "Standard_F1",
+                        "Standard_F1s",
+                        "Standard_F2",
+                        "Standard_F2s",
+                        "Standard_F2s_v2",
+                        "Standard_F4",
+                        "Standard_F4s",
+                        "Standard_F4s_v2",
+                        "Standard_F8",
+                        "Standard_F8s",
+                        "Standard_F8s_v2"
+                    ]
+                  }
+            }
+        },
+        "parPolicyAssignmentParameterOverrides": {
+            "value": {}
+        },
+        "parPolicyAssignmentNonComplianceMessages": {
+            "value": []
+        },
+        "parPolicyAssignmentNotScopes": {
+            "value": []
+        },
+        "parPolicyAssignmentEnforcementMode": {
+            "value": "Default"
+        },
+        "parPolicyAssignmentIdentityType": {
+            "value": "None"
+        },
+        "parPolicyAssignmentIdentityRoleAssignmentsAdditionalMGs": {
+            "value": []
+        },
+        "parPolicyAssignmentIdentityRoleAssignmentsSubs": {
+            "value": []
+        },
+        "parPolicyAssignmentIdentityRoleDefinitionIDs": {
+            "value": []
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Deploy-VM-Backup",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "description": "Enforce backup for all virtual machines by backing them up to an existing central recovery services vault in the same location and subscription as the virtual machine. Doing this is useful when there is a central team in your organization managing backups for all resources in a subscription. You can optionally exclude virtual machines containing a specified tag to control the scope of assignment. See https://aka.ms/AzureVMCentralBackupExcludeTag. ",
+    "displayName": "Configure backup on virtual machines without a given tag to an existing recovery services vault in the same location",
+    "notScopes": [],
+    "parameters": {
+      "vaultLocation": {
+        "value": "uksouth"
+      },
+      "backupPolicyId": {
+        "value": "/subscriptions/<SubscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RecoveryServices/vaults/<VaultName>/backupPolicies/<BackupPolicyName>."     
+       },
+      "exclusionTagName": {
+        "value": ""
+      },
+      "exclusionTagValue": {
+        "value": ""
+      },
+      "effect": {
+        "value": "deployIfNotExists"
+      }
+    },
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/09ce66bc-1220-4153-8104-e3f51c936913",
+    "scope": null,
+    "enforcementMode": "Default"
+  },
+  "location": null,
+  "identity": {
+    "type": "SystemAssigned"
+  }
+}

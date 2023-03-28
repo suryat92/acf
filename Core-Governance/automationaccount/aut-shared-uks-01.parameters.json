@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "parSubscription":{
+            "value": "c212bc8d-1360-4b09-a552-bb8da6b9876d"
+        },
+        "parResourceGroupName":{
+            "value": "RG-Azure-Sentinel"
+        },
+        "automationAccountName": {
+            "value": "aut-shared-uks-01"
+        },
+        "parLocation": {
+            "value": "UK South"
+        },
+        "skuName": {
+            "value": "Basic"
+        },
+        "schedules": {
+            "value": []
+        },
+        "privateEndpoints": {
+            "value": []
+        },
+        "tags": {
+            "value": {
+                "ApplicationName": "Management",
+                "DataClassification": "official",
+                "AppID": "1234",
+                "CostCenter": "7890",
+                "Environment": "Shared"
+            }
+        }
+    }
+}

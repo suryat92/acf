@@ -1,0 +1,88 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        
+        "parSubscription": {
+            "metadata": {
+                "description": "[REQUIRED] Subscription name or ID string"
+            },
+            "value": "subscription name goes here"
+        },
+        "parLocation": {
+            "metadata": {
+                "description": "[REQUIRED] Location for the deployment (e.g. uksouth or northeurope)"
+            },
+            "value": "location goes here"
+        },
+        "parResourceGroupName": {
+            "metadata": {
+                "description": "[REQUIRED] Resource Group Name (will be created if required)"
+            },
+            "value": "resource group goes here"
+        }, 
+        "tags": {
+            "value": {
+                "ApplicationName": "Alerts",
+                "DataClassification": "Official",
+                "AppID": "0000",
+                "CostCenter": "0000",
+                "Environment": "Production"
+            }
+        },
+        "parAlertMetricName": {
+            "value": "VM-Metric-CPU-80percent"
+        },
+        "parAlertMetricDescription": {
+            "value": "VM Metric CPU Greater than 80 percent"
+        },
+        "parAlertMetricSeverity": {
+            "value": 3
+        },
+        "parAlertMetricEnabled": {
+            "value": true
+        },
+        "parAlertMetricWindowSize": {
+            "value": "PT5M"
+        },
+        "parAlertMetricValuationFrequency": {
+            "value": "PT5M"
+        },
+        "parAlertMetricTargetResourceType": {
+            "value": "microsoft.compute/virtualmachines"
+        },
+        "parAlertMetricTargetResourceRegion": {
+            "value": "UKSouth"
+        },
+        "parAlertMetricLocation": {
+            "value": "global"
+        },
+        "parAlertMetricCriteriaType": {
+            "value": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria"
+        },
+        "parAlertMetricAutomitigate": {
+            "value": true
+        },
+        "parAlertMetricCriterias": {
+            "value": [
+                {
+                    "criterionType": "StaticThresholdCriterion",
+                    "metricName": "Percentage CPU",
+                    "metricNamespace": "microsoft.compute/virtualmachines",
+                    "name": "HighCPU",
+                    "operator": "GreaterThan",
+                    "threshold": "80",
+                    "timeAggregation": "Average"
+                }
+            ]
+        },
+        "parActionGroupName": {
+            "value":"subscription specific action group name goes here"
+        },
+        "parscopes": {
+            "value": [
+                "resource ID goes here"
+            ]
+        }
+    }
+}

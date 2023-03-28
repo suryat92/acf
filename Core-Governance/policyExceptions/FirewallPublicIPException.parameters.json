@@ -1,0 +1,48 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "parSubscription": {
+            "metadata": {
+                "description": "[REQUIRED] Subscription ID string"
+            },
+            "value": "08bc7b24-4234-4f48-af08-1fc0cb8644bb"
+        },
+        "parLocation": {
+            "metadata": {
+                "description": "[REQUIRED] Location for the deployment (e.g. uksouth or northeurope)"
+            },
+            "value": "uksouth"
+        },
+        "parResourceGroupName": {
+            "value": "rg-shared-services-vnet-con-uks"
+        },
+        "tags": {
+            "value": {
+                "ApplicationName": "Shared",
+                "DataClassification": "Official",
+                "AppID": "0000",
+                "CostCenter": "0000",
+                "Environment": "Production"
+            }
+        },
+        "parTopLevelManagementGroupID": {
+            "value": "SPS"
+        },
+        "parPolicyExemptionDisplayName": {
+            "value": "rg-shared-services-vnet-con-uks - Allow public IP's in con vnet RG"
+        },
+        "policyAssignmentName": {
+            "value": "Deny-Public-IP"
+        },
+        "parExemptionDescription": {
+            "value": "Allow public IP's for resources in the core shared services Resource Group - this covers firewall and vpn gateways"
+        },
+        "parExemptionCategory": {
+            "value": "Mitigated"
+        },
+        "parExpiresOn": {
+            "value": ""
+        }
+    }
+}
