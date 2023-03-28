@@ -1,0 +1,33 @@
+# This workflow will deploy a Bicep file to Azure using GitHub Actions
+name: Deploy Bicep
+
+# Trigger the workflow on push or pull request
+on: [push, pull_request]
+
+jobs:
+  # This job will install Bicep CLI and run the deployment
+  deploy:
+    # Run this job on ubuntu-latest
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      # Install Bicep CLI
+      - name: Install Bicep CLI
+        uses: azure/setup-bicep@v1
+      
+      # Login to Azure using service principal credentials
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+      # Deploy the Bicep file to the resource group
+      - name: Deploy Bicep file
+        run: |
+          az deployment group create \
+            --resource-group ${{ secrets.AZURE_RG }} \
+            --template-file ./template.bicep \
+            --parameters param1=value1 param2=value2
